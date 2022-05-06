@@ -1,27 +1,26 @@
-# MAIN DRIVER CODE
+# Main driver code
 import conditions as z1
 import cancellation as c1
 import secrets
 import string
 import json
 
-def booking(j,flight_num,class_type,meal):
+def booking(j,flight_no,class_type,meal):
 
  no_of_seats = int(input("Enter number of seats: "))
  seat_price = {}
-  
 #  dicto= {}
- #FOR EACH SEAT BOOKING
+ #For each seat in a booking
  for i in range(no_of_seats): 
   print("\nSeat No: ",i+1)
   seat=input("Enter seat location:(row in number column in alphabet) ")
   alp = c1.existing()
-                      # x=0
-              # while(x<len(alp)):
-              #   if(alp[x]==seat):
-              #     print("Seat already booked")
-              #   x=x+1   
-              
+  # x=0
+  # while(x<len(alp)):
+  #   if(alp[x]==seat):
+  #     print("Seat already booked")
+  #     quit()
+  #   x+=1
   for k in alp:
     if(seat==k):
         print("Seat already booked")
@@ -34,12 +33,12 @@ def booking(j,flight_num,class_type,meal):
   row=int(seat_location[0]) 
   col=ord(seat_location[1]) - ord('a') + 1
 
-  #TO CHECK THE SEAT IS THERE OR NOT 
+  #Check whether the seat exists or not
   seat_column=z1.seat_exist(row,col,flight_no,class_type)
   seat_column=seat_column[col-1]
   print(seat_column)
-  #TICKET PRICE
-  if(class_type=='e'):  
+
+  if(class_type=='e'): #ticket price
    if(seat_column != False):
     if(seat_column == "W" or seat_column == "A"):
      price=j*100+1100
@@ -65,8 +64,8 @@ def booking(j,flight_num,class_type,meal):
     meal_cost=0
     print("Price is INR: ",price)
 
- #saving data as DICTIONARY to a file
- dict={"Flight_no":flight_num,"class_type":class_type,"Seat_prices":seat_price,"meal":meal,"meal_cost":meal_cost}
+ #saving data as dictionary to a file
+ dict={"Flight_no":flight_no,"class_type":class_type,"Seat_prices":seat_price,"meal":meal,"meal_cost":meal_cost}
  print("Meal cost for this booking is INR: ",meal_cost)
  return dict
 
@@ -75,10 +74,10 @@ def display():
     with open("DictFile.json","r") as f:
         data=json.load(f)
         print(data)
-print("WELCOME TO SRINI AIRLINES (CHENNAI TO MANGALORE)\n")
+print("WELCOME TO ZOHO AIRLINES CHENNAI TO MANGALORE\n")
 user_choice=int(input("Please enter your choice:(1 for booking,2 for cancellation): "))
 if(user_choice==1):
- flight_num = input("Enter flight number:(a101.txt, a102.txt, a103.txt)[as of now] ")
+ flight_no = input("Enter flight number:(a101.txt, a102.txt, a103.txt)[as of now] ")
  class_type = input("Enter class:(e-Economy or b-Business) ")
  no_of_bookings = int(input("Enter number of bookings: "))
  meal=input("Do you want a meals for this booking?(y/n)")
