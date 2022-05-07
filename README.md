@@ -1,10 +1,4 @@
-- 👋 Hi, I’m @Srinithi2Aravindan
-- 👀 I’m interested in coding...
-- 🌱 I’m currently learning front end development...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me aravindansrinithi@gmail.com...
+This is my task which is to create flight ticket booking which was created by me.
+I chose Python as my preferred language.
+I gave comments for each code it will be easy for you to evaluate.
 
-<!---
-Srinithi2Aravindan/Srinithi2Aravindan is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
